@@ -10,7 +10,7 @@ phantom.scriptEncoding = 'utf-8'
 router.get('*', (req, res, next) => {
     let sitepage = null
     let phInstance = null
-    let fileName = (req.hostname + req.path).replace(/\/|\:/g,'_')
+    let fileName = (req.headers.host + req.path).replace(/\/|\:/g,'_')
     fs.exists(path.join(__dirname,pageDir,fileName), function(exists) {
         if(exists){
             fs.readFile(path.join(__dirname,pageDir,fileName), function(err,data) {
@@ -27,14 +27,12 @@ router.get('*', (req, res, next) => {
                 })
                 .then(page => {
                     sitepage = page
-                    //return page.open('http://localhost:8080' + req.path)
                     return page.property('onLoadStarted')
                 })
                 .then(status => {
                     return sitepage.injectJs('./node_modules/babel-polyfill/dist/polyfill.js')
                 })
                 .then(status => {
-                    // return sitepage.open(req.protocol + '://' + 'www.baidu.com')
                     return sitepage.open(req.protocol + '://' + req.headers.host + req.path)
                 })
                 .then(status => {
