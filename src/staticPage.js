@@ -35,7 +35,7 @@ router.get('*', (req, res, next) => {
                 })
                 .then(status => {
                     // return sitepage.open(req.protocol + '://' + 'www.baidu.com')
-                    return sitepage.open(req.protocol + '://' + req.hostname + req.path)
+                    return sitepage.open(req.protocol + '://' + req.headers.host + req.path)
                 })
                 .then(status => {
                     console.log('status is: ' + status)
