@@ -7,7 +7,7 @@ const port = process.env.PORT || 3030
 app.set('port', port)
 
 app.use('*',function (req, res, next) {
-    if (req.xhr || req.baseUrl.match(/(.js|.css|.ico|.png|.jpg|.jpeg|.gif|.xml|.svg)$/g) || req.baseUrl.match(".css")) {
+    if (req.xhr || req.baseUrl.match(/(.js|.css|.ico|.png|.jpg|.jpeg|.gif|.xml|.svg)$/g)) {
         res.status(404).send('Sorry cant find that') 
     } else {
         next()
@@ -15,7 +15,7 @@ app.use('*',function (req, res, next) {
 });
 
 // 设置api routes
-app.use('/', require('./src/staticPage'))
+app.use('/', require('./src/staticPage2'))
 
 // 设置本地上传文件的静态资源服务
 if (process.env.NODE_ENV === "development"){
