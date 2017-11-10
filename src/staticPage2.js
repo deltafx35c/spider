@@ -26,6 +26,7 @@ router.get('*', (req, res, next) => {
                         return console.error(err)
                     }
                 })
+                res.send(content)
                 await browser.close()
             })();
         }
