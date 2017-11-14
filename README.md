@@ -6,27 +6,13 @@ cnpm i pm2 -g
 cnpm i
 
 ## scripts
-``` 启动本地服务
-npm run dev
-``` 
-``` 启动生产环境服务
-npm run start
-```
-``` 查看当前pm2服务运行状况
-pm2 list 
-```
-``` 重启[单个(某个pid)/全部]服务
-pm2 restart pid/all
-```  
-``` 停止[单个(某个pid)/全部]服务
-pm2 stop pid/all
-```  
-``` 删除[单个(某个pid)/全部]服务
-pm2 delete pid/all
-```  
-``` 查看pm2运行日志
-pm2 logs
-```
+- npm run dev  _启动本地服务_
+- npm run start _启动生产环境服务_
+- pm2 list _查看当前pm2服务运行状况_
+- pm2 restart pid/all _重启[单个(某个pid)/全部]服务_
+- pm2 stop pid/all _停止[单个(某个pid)/全部]服务_
+- pm2 delete pid/all _删除[单个(某个pid)/全部]服务_
+- pm2 logs _查看pm2运行日志_
 
 ## Q&A
 Q : 安装puppeteer时无法下载对应的chrome  
