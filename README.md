@@ -28,10 +28,10 @@ Q : 无法生成缓存文件
 A : 确认src目录下cache文件夹是否存在  
 
 Q : centos7下puppeteer无法运行  
-A : 1.centos下需安装相关依赖包和字体，具体安装命令如下：  
-    yum install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 alsa-lib.x86_64 atk.x86_64 gtk3.x86_64 -y
-    yum install ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc -y  
-    2.使用root用户启动服务
+A : centos下需安装相关依赖包和字体，具体安装命令如下：  
+> - yum install pango.x86_64 libXcomposite.x86_64 libXcursor.x86_64 libXdamage.x86_64 libXext.x86_64 libXi.x86_64 libXtst.x86_64 cups-libs.x86_64 libXScrnSaver.x86_64 libXrandr.x86_64 GConf2.x86_64 alsa-lib.x86_64 atk.x86_64 gtk3.x86_64 -y
+> - yum install ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc -y  
+
 
 Q : 使用该爬虫服务器对入口nginx配置有何要求  
 A : 需要在入口nginx中过滤出爬虫请求，并转发到该服务器，并且必须将http header中的host设置为原请求的host内容，$http_user_agent的匹配可以根据需要拦截的爬虫种类进行修改，具体配置可以参考如下内容：  
