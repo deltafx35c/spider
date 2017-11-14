@@ -2,7 +2,7 @@
 爬虫专用服务器
 
 ## install
-cnpm i pm2 -g
+cnpm i pm2 -g  
 cnpm i
 
 ## scripts
