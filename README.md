@@ -35,6 +35,9 @@ A : 删除node_modules文件后反复尝试重新安装
 Q : 无法下载安装phantomJS
 A : 删除node_modules文件后反复尝试重新安装
 
+Q : 为何同时使用puppeteer(dealpage.js)和phantomJS(dealpage2.js)
+A : 因phantomJS已停止维护更新，其使用的webkit内核版本也较旧，故优先使用chrome官方团队维护的puppeteer作为首选方案，但因为puppeteer在linux上部署时可能存在问题，故使用phantomJS同时开发了相同功能作为备用方案
+
 Q : 无法生成缓存文件
 A : 确认src目录下cache文件夹是否存在
 
