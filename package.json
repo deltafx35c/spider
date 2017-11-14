@@ -5,8 +5,8 @@
   "author": "xijing",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon ./spiderServer.js",
-    "start": "pm2 start ./spiderServer.js",
+    "dev": "cross-env NODE_ENV=development nodemon ./server.js",
+    "start": "pm2 start ./server.js",
     "list": "pm2 list"
   },
   "dependencies": {
