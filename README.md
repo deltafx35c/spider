@@ -35,20 +35,20 @@ A : 1.centos下需安装相关依赖包和字体，具体安装命令如下：
 
 Q : 使用该爬虫服务器对入口nginx配置有何要求  
 A : 需要在入口nginx中过滤出爬虫请求，并转发到该服务器，并且必须将http header中的host设置为原请求的host内容，$http_user_agent的匹配可以根据需要拦截的爬虫种类进行修改，具体配置可以参考如下内容：  
-    location / {  
-        proxy_set_header Host $http_host;  
-        if ($http_user_agent ~* "qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {   
-            proxy_pass http://spider_server;  
-        }   
-        # 原有业务服务器配置  
-        # root   /www/vue/vue-webpack/dist;  
-        # try_files $uri $uri/ /index.html;  
-    }
+> location / {  
+>   proxy_set_header Host $http_host;  
+>   if ($http_user_agent ~* "qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {   
+>       proxy_pass http://spider_server;  
+>   }   
+>   `# 原有业务服务器配置`  
+>   `# root   /www/vue/vue-webpack/dist;`  
+>   `# try_files $uri $uri/ /index.html;`  
+>}  
 
 Q : 如何[清除/更新]页面缓存文件  
 A : 删除src/cache目录下[所有/对应]文件即可，爬虫下次访问页面时会自动生成新的缓存文件，重要提醒：**cache文件夹本身不可删除！**  
 
 Q : 如何快速测试爬虫服务器是否正常运行  
 A : 使用curl命令模拟爬虫请求并查看返回结果(状态码是否为200)，并查看服务端src/cache是否生成正确的缓存文件，curl命令可参考如下内容：  
-    `curl -I -A "Baiduspider" http://www.domain.com/path/to`  
+    `curl -I -A "Baiduspider" http://www.hostname.com/path/to`  
     
